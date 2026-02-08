@@ -61,11 +61,8 @@
   <label for="primera_opcion">1ERA OPCIÓN</label>
   <select id="primera_opcion" name="primera_opcion" required>
     <option value="">Cuál fue tu 1era opción</option>
-    <option value="administracion">Administración de Recursos Humanos</option>
-    <option value="arquitectura">Arquitectura</option>
-    <option value="construccion">Construcción</option>
-    <option value="contabilidad">Contabilidad</option>
-    <option value="diseño">Diseño Gráfico Digital</option>
+    <option value="negocios">Inteligencia de Negocios</option>
+    <option value="gestion">Gestión e Innovación Turística</option>
     <option value="inteligencia">Inteligencia Artificial</option>
 
   </select>
@@ -75,11 +72,8 @@
   <label for="segunda_opcion">2DA OPCIÓN</label>
  <select id="segunda_opcion" name="segunda_opcion" required>
     <option value="">Cuál fue tu 2da opción</option>
-    <option value="administracion">Administración de Recursos Humanos</option>
-    <option value="arquitectura">Arquitectura</option>
-    <option value="construccion">Construcción</option>
-    <option value="contabilidad">Contabilidad</option>
-    <option value="diseño">Diseño Gráfico Digital</option>
+       <option value="negocios">Inteligencia de Negocios</option>
+    <option value="gestion">Gestión e Innovación Turística</option>
     <option value="inteligencia">Inteligencia Artificial</option>
 
   </select>
@@ -89,57 +83,12 @@
   <label for="tercera_opcion">3ERA OPCIÓN</label>
   <select id="tercera_opcion" name="tercera_opcion" required>
     <option value="">Cuál fue tu 3era opción</option>
-    <option value="administracion">Administración de Recursos Humanos</option>
-    <option value="arquitectura">Arquitectura</option>
-    <option value="construccion">Construcción</option>
-    <option value="contabilidad">Contabilidad</option>
-    <option value="diseño">Diseño Gráfico Digital</option>
+       <option value="negocios">Inteligencia de Negocios</option>
+    <option value="gestion">Gestión e Innovación Turística</option>
     <option value="inteligencia">Inteligencia Artificial</option>
 
   </select>
 </div>
-
-<div>
-  <label for="cuarta_opcion">4TA OPCIÓN</label>
-  <select id="cuarta_opcion" name="cuarta_opcion" required>
-    <option value="">Cuál fue tu 4ta opción</option>
-    <option value="administracion">Administración de Recursos Humanos</option>
-    <option value="arquitectura">Arquitectura</option>
-    <option value="construccion">Construcción</option>
-    <option value="contabilidad">Contabilidad</option>
-    <option value="diseño">Diseño Gráfico Digital</option>
-    <option value="inteligencia">Inteligencia Artificial</option>
-
-  </select>
-</div>
-
-  <div>
-  <label for="quinta_opcion">5TA OPCIÓN</label>
- <select id="quinta_opcion" name="quinta_opcion" required>
-    <option value="">Cuál fue tu 5ta opción</option>
-    <option value="administracion">Administración de Recursos Humanos</option>
-    <option value="arquitectura">Arquitectura</option>
-    <option value="construccion">Construcción</option>
-    <option value="contabilidad">Contabilidad</option>
-    <option value="diseño">Diseño Gráfico Digital</option>
-    <option value="inteligencia">Inteligencia Artificial</option>
-
-  </select>
-</div>
- <div>
-  <label for="sexta_opcion">6TA OPCIÓN</label>
- <select id="sexta_opcion" name="sexta_opcion" required>
-    <option value="">Cuál fue tu 6ta opción</option>
-    <option value="administracion">Administración de Recursos Humanos</option>
-    <option value="arquitectura">Arquitectura</option>
-    <option value="construccion">Construcción</option>
-    <option value="contabilidad">Contabilidad</option>
-    <option value="diseño">Diseño Gráfico Digital</option>
-    <option value="inteligencia">Inteligencia Artificial</option>
-
-  </select>
-</div>
-
 
 
 <div>
@@ -167,10 +116,6 @@
 </select>
 
 </div>
-
-
-
-
 
 
 <!-- Bloque de Estado/Municipio/Ciudad de nacimiento -->
@@ -253,14 +198,12 @@
 
 
 <script>
-  const opciones = ["administración de recursos humanos", "arquitectura", "contabilidad", "diseño gráfico digital", "inteligencia artificial", "construción"];
+  const opciones = ["Gestión e Innovación Turística", "inteligencia artificial", "Inteligencia de Negocios"];
   const selects = [
     document.getElementById('primera_opcion'),
     document.getElementById('segunda_opcion'),
-    document.getElementById('tercera_opcion'),
-    document.getElementById('cuarta_opcion'),
-    document.getElementById('quinta_opcion'),
-    document.getElementById('sexta_opcion')
+    document.getElementById('tercera_opcion')
+   
   ];
   function actualizarOpciones() {
     const seleccionados = selects.map(select => select.value);
