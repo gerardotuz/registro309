@@ -1,6 +1,6 @@
 const BASE_URL = window.location.origin.includes('localhost')
   ? 'http://localhost:3001'
-  : 'https://registro72.onrender.com';
+  : 'https://registro309.onrender.com';
 
 document.addEventListener('DOMContentLoaded', () => {
   if (!localStorage.getItem('login')) {
