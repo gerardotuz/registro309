@@ -83,28 +83,31 @@ router.post('/guardar', async (req, res) => {
   try {
     const data = req.body;
 
-    // 🚫 PREVENIR DOBLE REGISTRO POR CURP
-    const existe = await Alumno.findOne({
-      "datos_alumno.curp": data.datos_alumno?.curp
-    });
+    const curp = data?.datos_alumno?.curp?.toUpperCase();
 
-    if (existe?.registro_completado) {
+    if (!curp) {
       return res.status(400).json({
-        message: "Este alumno ya completó su registro"
+        error: "CURP no proporcionada"
       });
     }
 
-    // 🎓 GENERAR FOLIO AQUÍ (SOLO UNA VEZ)
+    const resultado = await curpExisteEnOtroPlantel(curp);
+
+    if (resultado.existe) {
+      return res.status(400).json({
+        error: `La CURP ya está registrada en el plantel ${resultado.plantel} con folio ${resultado.folio}`
+      });
+    }
+
+    // 🎓 GENERAR FOLIO
     const folio = await generarFolio();
     data.folio = folio;
 
-    // 🔒 MARCAR REGISTRO
     data.registro_completado = true;
     data.bloqueado = true;
 
     const actualizado = await Alumno.create(data);
 
-    // 📄 GENERAR PDF
     const datosAnidados = flattenToNested(actualizado.toObject());
     const nombreArchivo = `${folio}.pdf`;
     const pdfUrl = await generarPDF(datosAnidados, nombreArchivo);
@@ -120,6 +123,7 @@ router.post('/guardar', async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 });
+
 
 
 
