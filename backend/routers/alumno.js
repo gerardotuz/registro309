@@ -8,6 +8,8 @@ const generarPDF = require('../utils/pdfGenerator');
 const flattenToNested = require('../utils/flattenToNested');
 const path = require('path');
 const fs = require('fs');
+const axios = require("axios");
+
 
 router.get('/ping', (req, res) => {
   res.status(200).json({ ok: true });
