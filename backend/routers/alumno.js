@@ -52,6 +52,34 @@ router.get('/folio/:folio', async (req, res) => {
 });
 
 
+async function curpExisteEnOtroPlantel(curpActual) {
+  try {
+
+    const response = await axios.get(
+      `https://registro272.onrender.com/api/debug/curp-global/${curpActual}`
+    );
+
+    const resultados = response.data.resultados;
+
+    const duplicado = resultados.find(r =>
+      r.encontrado === true && r.plantel !== "registro309"
+    );
+
+    if (duplicado) {
+      return {
+        existe: true,
+        plantel: duplicado.plantel,
+        folio: duplicado.folio
+      };
+    }
+
+    return { existe: false };
+
+  } catch (error) {
+    console.error("Error validando CURP global:", error.message);
+    return { existe: false };
+  }
+}
 
 
 
